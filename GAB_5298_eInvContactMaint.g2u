@@ -1,0 +1,1389 @@
+Program.Sub.ScreenSU.Start
+Gui.fMain..Create
+Gui.fMain..Caption("E-Invoicing Contact Maintenance")
+Gui.fMain..Size(14175,6810)
+Gui.fMain..MinX(0)
+Gui.fMain..MinY(0)
+Gui.fMain..Position(0,0)
+Gui.fMain..BackColor(-2147483633)
+Gui.fMain..MousePointer(0)
+Gui.fMain..Event(UnLoad,unload)
+Gui.fMain.gsgcAR.Create(GsGridControl)
+Gui.fMain.gsgcAR.Size(13995,5805)
+Gui.fMain.gsgcAR.Position(30,30)
+Gui.fMain.gsgcAR.Event(RowCellClick,rowClick)
+Gui.fMain.gsgcAR.Anchor(15)
+Gui.fMain.lblCustomer.Create(Label,"Total Customers:",True,1350,255,0,315,6030,True,0,"Arial",8,-2147483633,0)
+Gui.fMain.lblCustomer.Anchor(6)
+Gui.fMain.lblNumCusts.Create(Label,"Label",True,1395,255,0,1620,6030,True,0,"Arial",8,-2147483633,0)
+Gui.fMain.lblNumCusts.Anchor(6)
+Gui.fMain.lblEinvoice.Create(Label,"Total E-Invoicing Customers:",True,2175,255,0,3075,6030,True,0,"Arial",8,-2147483633,0)
+Gui.fMain.lblEinvoice.Anchor(6)
+Gui.fMain.lblNumEinv.Create(Label,"Label",True,1935,255,0,5220,6030,True,0,"Arial",8,-2147483633,0)
+Gui.fMain.lblNumEinv.Anchor(6)
+Gui.fMultiContact..Create
+Gui.fMultiContact..Caption("Multiple Contacts Found")
+Gui.fMultiContact..Size(4665,4620)
+Gui.fMultiContact..MinX(0)
+Gui.fMultiContact..MinY(0)
+Gui.fMultiContact..Position(0,0)
+Gui.fMultiContact..BackColor(-2147483633)
+Gui.fMultiContact..MousePointer(0)
+Gui.fMultiContact.txt1.Create(TextBox,"Multiple CRM contacts found with address:",True,3195,195,0,285,825,True,0,"Arial",8,-2147483633,0)
+Gui.fMultiContact.lblEmail.Create(Label,"Contact Email",True,1935,255,0,285,1200,True,0,"Arial",8,-2147483633,0)
+Gui.fMultiContact.lblSelect.Create(Label,"Please select contact to enable for E-Invoicing:",True,3690,255,0,270,1770,True,0,"Arial",8,-2147483633,0)
+Gui.fMultiContact.opt1.Create(Option)
+Gui.fMultiContact.opt1.Size(1575,255)
+Gui.fMultiContact.opt1.Position(270,2100)
+Gui.fMultiContact.opt1.Visible(False)
+Gui.fMultiContact.opt2.Create(Option)
+Gui.fMultiContact.opt2.Size(1575,255)
+Gui.fMultiContact.opt2.Position(270,2460)
+Gui.fMultiContact.opt2.Visible(False)
+Gui.fMultiContact.opt3.Create(Option)
+Gui.fMultiContact.opt3.Size(1575,255)
+Gui.fMultiContact.opt3.Position(270,2820)
+Gui.fMultiContact.opt3.Visible(False)
+Gui.fMultiContact.opt4.Create(Option)
+Gui.fMultiContact.opt4.Size(1575,255)
+Gui.fMultiContact.opt4.Position(270,3180)
+Gui.fMultiContact.opt4.Visible(False)
+Gui.fMultiContact.cmdOK.Create(Button)
+Gui.fMultiContact.cmdOK.Size(855,375)
+Gui.fMultiContact.cmdOK.Position(3165,3495)
+Gui.fMultiContact.cmdOK.Caption("OK")
+Gui.fMultiContact.cmdOK.Event(Click,cmdOK_Click)
+Gui.fMultiContact.lblCustNum.Create(Label,"(CUSTNUM)",True,1095,255,0,270,180,True,0,"Arial",8,-2147483633,0)
+Gui.fMultiContact.lblCustNum.FontStyle(True,False,False,False,False)
+Gui.fMultiContact.lblCustName.Create(Label,"CUSTOMER NAME",True,1935,255,0,270,450,True,0,"Arial",8,-2147483633,0)
+Gui.fMultiContact.lblCustName.FontStyle(True,False,False,False,False)
+Gui.fNewContact..Create
+Gui.fNewContact..Caption("Create New Contact")
+Gui.fNewContact..Size(4890,3945)
+Gui.fNewContact..MinX(0)
+Gui.fNewContact..MinY(0)
+Gui.fNewContact..Position(0,0)
+Gui.fNewContact..BackColor(-2147483633)
+Gui.fNewContact..MousePointer(0)
+Gui.fNewContact..Event(UnLoad,fNewContact_UnLoad)
+Gui.fNewContact.txtFName.Create(TextBox,"AR",True,2535,300,0,1290,1080,True,0,"Arial",8,-2147483643,1)
+Gui.fNewContact.txtFName.MaxLength(25)
+Gui.fNewContact.txtFName.DefaultValue("")
+Gui.fNewContact.txtLName.Create(TextBox,"Contact",True,2535,300,0,1275,1650,True,0,"Arial",8,-2147483643,1)
+Gui.fNewContact.txtLName.MaxLength(25)
+Gui.fNewContact.txtLName.DefaultValue("")
+Gui.fNewContact.txtEmail.Create(TextBox,"",True,2520,300,0,1275,2265,True,0,"Arial",8,-2147483643,1)
+Gui.fNewContact.txtEmail.MaxLength(100)
+Gui.fNewContact.lblFName.Create(Label,"First Name",True,975,255,0,240,1170,True,0,"Arial",8,-2147483633,0)
+Gui.fNewContact.lblCust.Create(Label,"Customer:",True,960,255,0,210,270,True,0,"Arial",8,-2147483633,0)
+Gui.fNewContact.lblLName.Create(Label,"Last Name",True,975,255,0,240,1740,True,0,"Arial",8,-2147483633,0)
+Gui.fNewContact.lblEmail.Create(Label,"Email",True,585,255,0,630,2355,True,0,"Arial",8,-2147483633,0)
+Gui.fNewContact.lblCustName.Create(Label,"Label",True,4005,255,0,210,585,True,0,"Arial",8,-2147483633,0)
+Gui.fNewContact.lblCustName.FontStyle(True,False,False,False,False)
+Gui.fNewContact.lblCustNum.Create(Label,"Label",True,1935,255,0,1110,270,True,0,"Arial",8,-2147483633,0)
+Gui.fNewContact.lblCustNum.FontStyle(True,False,False,False,False)
+Gui.fNewContact.cmdOK.Create(Button)
+Gui.fNewContact.cmdOK.Size(855,375)
+Gui.fNewContact.cmdOK.Position(3555,2850)
+Gui.fNewContact.cmdOK.Caption("OK")
+Gui.fNewContact.cmdOK.Event(Click,cmdfNewContactOK_Click)
+Gui.fPrompt..Create
+Gui.fPrompt..Caption("Choose")
+Gui.fPrompt..Size(4785,3390)
+Gui.fPrompt..MinX(0)
+Gui.fPrompt..MinY(0)
+Gui.fPrompt..Position(0,0)
+Gui.fPrompt..BackColor(-2147483633)
+Gui.fPrompt..MousePointer(0)
+Gui.fPrompt..Event(UnLoad,fPrompt_UnLoad)
+Gui.fPrompt.cmd1.Create(Button)
+Gui.fPrompt.cmd1.Size(1230,375)
+Gui.fPrompt.cmd1.Position(720,2280)
+Gui.fPrompt.cmd1.Caption("Create New")
+Gui.fPrompt.cmd1.Event(Click,cmdCreateNew_Click)
+Gui.fPrompt.cmd2.Create(Button)
+Gui.fPrompt.cmd2.Size(1410,375)
+Gui.fPrompt.cmd2.Position(2280,2280)
+Gui.fPrompt.cmd2.Caption("Choose Existing")
+Gui.fPrompt.cmd2.Event(Click,cmdChooseExisting_Click)
+Gui.fPrompt.lbl1.Create(Label,"There are no CRM contacts with this email address.",True,3975,255,0,225,1065,True,0,"Arial",8,-2147483633,0)
+Gui.fPrompt.lbl2.Create(Label,"Create new contact or choose from existing contacts?",True,4290,255,0,150,1755,True,0,"Arial",8,-2147483633,0)
+Gui.fPrompt.lblCustomer.Create(Label,"Customer:",True,885,255,0,285,315,True,0,"Arial",8,-2147483633,0)
+Gui.fPrompt.lblCustNum.Create(Label,"Label",True,1935,255,0,1155,315,True,0,"Arial",8,-2147483633,0)
+Gui.fPrompt.lblCustNum.FontStyle(True,False,False,False,False)
+Gui.fPrompt.lblCustName.Create(Label,"Label",True,1935,255,0,285,615,True,0,"Arial",8,-2147483633,0)
+Gui.fPrompt.lblCustName.FontStyle(True,False,False,False,False)
+Gui.fPrompt.lblEmail.Create(Label,"Label",True,1935,255,0,1155,1380,True,0,"Arial",8,-2147483633,0)
+Gui.fChooseExisting..Create
+Gui.fChooseExisting..Caption("Choose Existing Contact")
+Gui.fChooseExisting..Size(4845,4590)
+Gui.fChooseExisting..MinX(0)
+Gui.fChooseExisting..MinY(0)
+Gui.fChooseExisting..Position(0,0)
+Gui.fChooseExisting..BackColor(-2147483633)
+Gui.fChooseExisting..MousePointer(0)
+Gui.fChooseExisting..AlwaysOnTop(True)
+Gui.fChooseExisting.lbl1.Create(Label,"Choose an existing contact from the list below.",True,3780,255,0,345,420,True,0,"Arial",8,-2147483633,0)
+Gui.fChooseExisting.cmd1.Create(Button)
+Gui.fChooseExisting.cmd1.Size(855,375)
+Gui.fChooseExisting.cmd1.Position(3300,3375)
+Gui.fChooseExisting.cmd1.Caption("OK")
+Gui.fChooseExisting.cmd1.Event(Click,cmdOK_fChooseExisting_Click)
+Gui.fChooseExisting.gsgcContacts.Create(GsGridControl)
+Gui.fChooseExisting.gsgcContacts.Size(3945,2475)
+Gui.fChooseExisting.gsgcContacts.Position(240,735)
+Gui.fChooseExisting.gsgcContacts.Event(RowClick,gsgcContacts_RowClick)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+'Written by: Phillip Grekstas
+'Date: 7/9/2018
+'Program: View of all standard E-Invoicing contacts from both AR and CRM
+'Program: Gives ability to flag/unflag contacts for E-Invoicing directly from program
+'Program: and to "convert" contacts from AR to CRM or vice-versa.
+
+V.Global.iCtr.Declare
+V.Global.iIndx.Declare
+V.Global.bSuccess.Declare(Boolean,False)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.Try
+V.Local.sError.Declare
+
+	V.Local.sDSN.Declare
+	V.Local.iCtr.Declare
+	V.Local.sTemp.Declare
+	V.Local.sIcon.Declare
+	
+	F.Intrinsic.String.Build("{0}\ART\GSS2.ico",V.Caller.GlobalDir,V.Local.sIcon)
+	gui.fMain..Icon(V.Local.sIcon)
+	gui.fMultiContact..Icon(V.Local.sIcon)
+	gui.fChooseExisting..Icon(V.Local.sIcon)
+	gui.fNewContact..Icon(V.Local.sIcon)
+	gui.fPrompt..Icon(V.Local.sIcon)
+	
+	F.ODBC.Connection!con.OpenCompanyConnection
+
+	F.Intrinsic.Control.CallSub(populateAux)
+	
+	F.Intrinsic.Control.CallSub(SetContextMenus)
+
+	F.Intrinsic.Control.CallSub(load)
+
+	'Show main form
+	Gui.fMain..Show
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}.",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.unload.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Data.DataTable.Close("dtARContacts")
+	F.Data.DataTable.Close("dtCRMContacts")
+	F.ODBC.Connection!con.Close
+	F.Intrinsic.Control.End 
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}.",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.unload.End
+
+Program.Sub.SetContextMenus.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	Gui.fMain..ContextMenuCreate("ctxAR")
+	Gui.fMain.gsgcAR.ContextMenuAttach("ctxAR")
+	
+	Gui.fMain..ContextMenuAddItem("ctxAR","SelAR",0,"Select All AR")
+	Gui.fMain..ContextMenuAddItem("ctxAR","DeselAR",0,"Deselect All AR")
+	
+	Gui.fMain..ContextMenuAddItem("ctxAR","Exp",3)
+	
+	Gui.fMain..ContextMenuAddItem("ctxAR","SelCRM",0,"Select All CRM")
+	Gui.fMain..ContextMenuAddItem("ctxAR","DeselCRM",0,"Deselect All CRM")
+	
+	Gui.fMain..ContextMenuAddItem("ctxAR","Exp",3)
+	
+	Gui.fMain..ContextMenuAddItem("ctxAR","ConvertAR",0,"Convert to AR")
+	Gui.fMain..ContextMenuAddItem("ctxAR","ConvertCRM",0,"Convert to CRM")
+	
+	Gui.fMain..ContextMenuAddItem("ctxAR","Exp",3)
+	
+	Gui.fMain..ContextMenuAddItem("ctxAR","AddEInv",0,"Add to E-Invoicing")
+	Gui.fMain..ContextMenuAddItem("ctxAR","RemEInv",0,"Remove from E-Invoicing")
+	
+	Gui.fMain..ContextMenuAddItem("ctxAR","Exp",3)
+	
+	Gui.fMain..ContextMenuAddItem("ctxAR","Refresh",0,"Refresh")
+	Gui.fMain..ContextMenuAddItem("ctxAR","Export",0,"Export")
+'	Gui.fMain..ContextMenuAddItem("ctxAR","ResetColumns",0,"Reset Columns")
+	
+	Gui.fMain..ContextMenuSetItemEventHandler("ctxAR","SelAR","MenuClick")
+	Gui.fMain..ContextMenuSetItemEventHandler("ctxAR","DeselAR","MenuClick")
+	
+	Gui.fMain..ContextMenuSetItemEventHandler("ctxAR","SelCRM","MenuClick")
+	Gui.fMain..ContextMenuSetItemEventHandler("ctxAR","DeselCRM","MenuClick")
+	
+	Gui.fMain..ContextMenuSetItemEventHandler("ctxAR","ConvertAR","MenuClick")
+	Gui.fMain..ContextMenuSetItemEventHandler("ctxAR","ConvertCRM","MenuClick")
+	
+	Gui.fMain..ContextMenuSetItemEventHandler("ctxAR","AddEInv","MenuClick")
+	Gui.fMain..ContextMenuSetItemEventHandler("ctxAR","RemEInv","MenuClick")
+	
+	Gui.fMain..ContextMenuSetItemEventHandler("ctxAR","Refresh","MenuClick")
+	Gui.fMain..ContextMenuSetItemEventHandler("ctxAR","Export","MenuClick")
+'	Gui.fMain..ContextMenuSetItemEventHandler("ctxAR","ResetColumns","MenuClick")
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.SetContextMenus.End
+
+Program.Sub.MenuClick.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.iCnt.Declare
+	V.Local.sSelect.Declare
+	V.Local.sFileExport.Declare
+	V.Local.bExcel.Declare
+	V.Local.bFileLocked.Declare
+	V.Local.sMsg.Declare
+	V.Local.iRow.Declare
+	
+	F.Intrinsic.Control.SelectCase(V.Args.ItemName)
+		F.Intrinsic.Control.Case("SELAR")
+			F.Data.DataTable.Select("dtARContacts","Type = 'AR'",V.Local.sSelect)
+			F.Intrinsic.Control.If(V.Local.sSelect.IsNotNoReturn)
+				F.Intrinsic.String.Split(V.Local.sSelect,"*!*",V.Local.sSelect)
+				F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sSelect.UBound,1)
+					F.Data.DataTable.SetValue("dtARContacts",V.Local.sSelect(V.Local.iCnt),"Select",True)
+				F.Intrinsic.Control.Next(V.Local.iCnt)
+			F.Intrinsic.Control.EndIf
+			
+		F.Intrinsic.Control.Case("DESELAR")
+			F.Data.DataTable.Select("dtARContacts","Type = 'AR'",V.Local.sSelect)
+			F.Intrinsic.Control.If(V.Local.sSelect.IsNotNoReturn)
+				F.Intrinsic.String.Split(V.Local.sSelect,"*!*",V.Local.sSelect)
+				F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sSelect.UBound,1)
+					F.Data.DataTable.SetValue("dtARContacts",V.Local.sSelect(V.Local.iCnt),"Select",False)
+				F.Intrinsic.Control.Next(V.Local.iCnt)
+			F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.Control.Case("SELCRM")
+			F.Data.DataTable.Select("dtARContacts","Type = 'CRM'",V.Local.sSelect)
+			F.Intrinsic.Control.If(V.Local.sSelect.IsNotNoReturn)
+				F.Intrinsic.String.Split(V.Local.sSelect,"*!*",V.Local.sSelect)
+				F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sSelect.UBound,1)
+					F.Data.DataTable.SetValue("dtARContacts",V.Local.sSelect(V.Local.iCnt),"Select",True)
+				F.Intrinsic.Control.Next(V.Local.iCnt)
+			F.Intrinsic.Control.EndIf
+			
+		F.Intrinsic.Control.Case("DESELCRM")
+			F.Data.DataTable.Select("dtARContacts","Type = 'CRM'",V.Local.sSelect)
+			F.Intrinsic.Control.If(V.Local.sSelect.IsNotNoReturn)
+				F.Intrinsic.String.Split(V.Local.sSelect,"*!*",V.Local.sSelect)
+				F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sSelect.UBound,1)
+					F.Data.DataTable.SetValue("dtARContacts",V.Local.sSelect(V.Local.iCnt),"Select",False)
+				F.Intrinsic.Control.Next(V.Local.iCnt)
+			F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.Control.Case("CONVERTAR")
+			F.Intrinsic.Control.CallSub(ConvertAR)
+			
+		F.Intrinsic.Control.Case("CONVERTCRM")
+			F.Intrinsic.Control.CallSub(ConvertCRM)
+			
+		F.Intrinsic.Control.Case("ADDEINV")
+			Gui.fMain.gsgcAR.GetSelectedRows("gvARContacts",V.Local.iRow)
+			F.Intrinsic.Control.CallSub(addRow,"Row",V.Local.iRow)
+			
+		F.Intrinsic.Control.Case("REMEINV")
+			Gui.fMain.gsgcAR.GetSelectedRows("gvARContacts",V.Local.iRow)
+			F.Intrinsic.Control.CallSub(deleteRow,"Row",V.Local.iRow)
+		
+		F.Intrinsic.Control.Case("REFRESH")
+			f.Intrinsic.Control.CallSub(load)
+			
+		F.Intrinsic.Control.Case("EXPORT")
+			F.Automation.MSExcel.CheckPresence(V.Local.bExcel)
+			F.Intrinsic.Control.If(V.Local.bExcel)
+				F.Intrinsic.String.Build("{0}\GAB_xxxx_eInv_Export.xlsx",V.Caller.LocalGSSTempDir,V.Local.sFileExport)
+				F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+				F.Intrinsic.Control.If(V.Local.bFileLocked)
+					F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+					F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+				F.Intrinsic.Control.Else
+					Gui.fMain.gsgcAR.Export(V.Local.sFileExport,"xlsx")
+					F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.Else
+				F.Intrinsic.String.Build("{0}\GAB_xxxx_eInv_Export.csv",V.Caller.LocalGSSTempDir,V.Local.sFileExport)
+				F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+				F.Intrinsic.Control.If(V.Local.bFileLocked)
+					F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+					F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+				F.Intrinsic.Control.Else
+					Gui.fMain.gsgcAR.Export(V.Local.sFileExport,"csv")
+				F.Intrinsic.Control.EndIf
+				F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+			F.Intrinsic.Control.EndIf
+		
+		F.Intrinsic.Control.Case("RESETCOLUMNS")
+			
+		
+	F.Intrinsic.Control.EndSelect
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.MenuClick.End
+
+Program.Sub.load_AR.Start
+F.Intrinsic.Control.Try
+	V.Local.sSQL.Declare
+	V.Local.iCtr.Declare
+	V.Local.iCtr2.Declare
+	V.Local.sAddr.Declare
+	V.Local.sTemp.Declare
+	V.Local.sError.Declare
+	
+	'Build source query
+	V.Local.sSQL.Set("select RTRIM(A.CUSTOMER) AS 'CustomerNum', RTRIM(A.NAME_CUSTOMER) AS 'CustomerName', RTRIM(B.ADDL_EMAILS) AS 'Email' from CUSTOMER_MASTER A LEFT OUTER JOIN PPT_EINV_COPT B ON A.CUSTOMER = B.CUSTOMER_ID WHERE A.REC = 1")
+	F.Intrinsic.Control.If(V.DataTable.dtARContacts.Exists,=,True)
+		F.Data.DataTable.Close("dtARContacts")
+	F.Intrinsic.Control.EndIf
+	
+	'Create DT
+	F.Data.DataTable.CreateFromSQL("dtARContacts","con",V.Local.sSQL,True)
+	
+	'Format DT, add columns
+	F.Data.DataTable.AddColumn("dtARContacts","Contact","String")
+	F.Data.DataTable.AddColumn("dtARContacts","E-Invoicing_Flg","String")
+	F.Data.DataTable.AddColumn("dtARContacts","E-Invoicing",Boolean,False)
+	F.Data.DataTable.AddColumn("dtARContacts","Type","String","AR")
+	F.Data.DataTable.AddColumn("dtARContacts","CID","Long")
+	F.Data.DataTable.AddColumn("dtARContacts","Select","Boolean",False)
+	
+	'Find records with multiple email addresses; Split into separate records and delete original record
+	F.Intrinsic.Control.For(V.Local.iCtr,0,V.DataTable.dtARContacts.RowCount--,1)
+		F.Intrinsic.String.Split(V.DataTable.dtARContacts(V.Local.iCtr).Email!FieldValTrim,",",V.Local.sAddr)
+		F.Intrinsic.Control.If(V.Local.sAddr.Ubound,>,0)
+			F.Intrinsic.Control.For(V.Local.iCtr2,0,V.Local.sAddr.Ubound,1)
+				F.Intrinsic.String.Trim(V.Local.sAddr(V.Local.iCtr2),V.Local.sTemp)
+				F.Data.DataTable.AddRow("dtARContacts","CustomerNum",V.DataTable.dtARContacts(V.Local.iCtr).CustomerNum!FieldValTrim,"CustomerName",V.DataTable.dtARContacts(V.Local.iCtr).CustomerName!FieldValTrim,"Email",V.Local.sTemp,"Type","AR")
+			F.Intrinsic.Control.Next(V.Local.iCtr2)
+			F.Data.DataTable.DeleteRow("dtARContacts",V.Local.iCtr)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.iCtr)
+	
+	'Accept the changes of the delete(s)
+	F.Data.DataTable.AcceptChanges("dtARContacts")	
+	
+	'Check all AR contacts, assign Yes if email is present, otherwise No
+	F.Intrinsic.Control.For(V.Local.iCtr,0,V.DataTable.dtARContacts.RowCount--,1)
+		F.Intrinsic.Control.If(V.DataTable.dtARContacts(V.Local.iCtr).Type!FieldValTrim,=,"AR")
+			F.Intrinsic.Control.If(V.DataTable.dtARContacts(V.Local.iCtr).Email!FieldValTrim,<>,"")
+				F.Data.DataTable.SetValue("dtARContacts",V.Local.iCtr,"E-Invoicing",True)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.iCtr)
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}.",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.load_AR.End
+
+Program.Sub.load_CRM.Start
+F.Intrinsic.Control.Try
+	V.Local.sSQL.Declare
+	V.Local.iCtr.Declare
+	V.Local.iFlg.Declare
+	V.Local.iTemp.Declare
+	V.Local.sError.Declare
+	
+	'Build source query
+	V.Local.sSQL.Set("SELECT RTRIM(A.CUST) AS 'CustomerNum', RTRIM(A.NAME) As 'Contact', RTRIM(A.EMAIL1) As 'Email', B.E_PROG_SETTINGS As 'E-Invoicing_Flg', CID, RTRIM(C.NAME_CUSTOMER) AS 'CustomerName' FROM CONTACT A LEFT OUTER JOIN CRM_CONTACT_AUX B ON A.ALT_ID = B.CID LEFT OUTER JOIN CUSTOMER_MASTER C ON C.CUSTOMER = A.CUST WHERE A.TYPE = 'C' AND C.REC = 1")
+	F.Intrinsic.Control.If(V.DataTable.dtCRMContacts.Exists,=,True)
+		F.Data.DataTable.Close("dtCRMContacts")
+	F.Intrinsic.Control.EndIf
+	
+	'Create DT from SQL
+	F.Data.DataTable.CreateFromSQL("dtCRMContacts","con",V.Local.sSQL,True)
+	
+	'Format DT, add columns
+	F.Data.DataTable.AddColumn("dtCRMContacts","E-Invoicing",Boolean,False)
+	F.Data.DataTable.AddColumn("dtCRMContacts","Type","String","CRM")
+	
+	'For all CRM contacts, check if E-Invoicing flag is set. if so, label with Yes, otherwise No
+	F.Intrinsic.Control.For(V.Local.iCtr,0,V.DataTable.dtCRMContacts.RowCount--,1)
+		V.Local.iFlg.Set(V.DataTable.dtCRMContacts(V.Local.iCtr).E-Invoicing_Flg!FieldValTrim)
+		F.Intrinsic.Math.Mod(V.Local.iFlg,2,V.Local.iTemp) 'E_PROG_SETTINGS is binary flag. When E-Invoicing set, flag is odd. 
+		F.Intrinsic.Control.If(V.Local.iTemp,<>,0) '0 = E-Invoicing disabled
+			F.Data.DataTable.SetValue("dtCRMContacts",V.Local.iCtr,"E-Invoicing",True)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.iCtr)
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}.",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+
+Program.Sub.load_CRM.End
+
+Program.Sub.deleteRow.Start
+F.Intrinsic.Control.Try
+	V.Local.sEmail.Declare
+	V.Local.sSQL.Declare
+	V.Local.sRet.Declare
+	V.Local.iCtr.Declare
+	V.Local.ieInvFlg.Declare
+	V.Local.sError.Declare
+	
+	F.Intrinsic.Control.If(V.DataTable.dtARContacts(V.Args.Row).Type!FieldValTrim,=,"AR")
+		V.Local.sEmail.Set(V.DataTable.dtARContacts(V.Args.Row).Email!FieldValTrim)
+		F.Intrinsic.Control.If(V.Local.sEmail,<>,"")
+			F.Intrinsic.String.Build("SELECT ADDL_EMAILS FROM PPT_EINV_COPT WHERE CUSTOMER_ID = '{0}'",V.DataTable.dtARContacts(V.Args.Row).CustomerNum!FieldValTrim,V.Local.sSQL)
+			F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+			F.Intrinsic.String.Split(V.Local.sRet,",",V.Local.sRet)
+			F.Intrinsic.Control.If(V.Local.sRet.Ubound,=,0)
+				'Delete entire row
+				F.Intrinsic.String.Build("DELETE FROM PPT_EINV_COPT WHERE CUSTOMER_ID = '{0}'",V.DataTable.dtARContacts(V.Args.Row).CustomerNum!FieldValTrim,V.Local.sSQL)
+				f.ODBC.Connection!con.Execute(V.Local.sSQL)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.Control.For(V.Local.iCtr,0,V.Local.sRet.UBound,1)
+					F.Intrinsic.Control.If(V.Local.sRet(V.Local.iCtr),=,V.Local.sEmail)
+						F.Intrinsic.Control.If(V.Local.iCtr,=,0)
+							F.Intrinsic.String.Build("UPDATE PPT_EINV_COPT SET ADDL_EMAILS = (REPLACE(ADDL_EMAILS,'{0},',''))WHERE CUSTOMER_ID = '{1}'",V.Local.sEmail,V.DataTable.dtARContacts(V.Args.Row).CustomerNum!FieldValTrim,V.Local.sSQL)
+							f.ODBC.Connection!con.Execute(V.Local.sSQL)
+						F.Intrinsic.Control.Else
+							'Delete email with preceding comma
+							F.Intrinsic.String.Build("UPDATE PPT_EINV_COPT SET ADDL_EMAILS = (REPLACE(ADDL_EMAILS,',{0}',''))WHERE CUSTOMER_ID = '{1}'",V.Local.sEmail,V.DataTable.dtARContacts(V.Args.Row).CustomerNum!FieldValTrim,V.Local.sSQL)
+							f.ODBC.Connection!con.Execute(V.Local.sSQL)
+						F.Intrinsic.Control.EndIf
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.Next(V.Local.iCtr)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Else
+			F.Intrinsic.UI.Msgbox("No E-Invoicing record to delete")
+			F.Intrinsic.Control.ExitSub
+		F.Intrinsic.Control.EndIf
+		f.Intrinsic.Control.CallSub(load)
+	F.Intrinsic.Control.ElseIf(V.DataTable.dtARContacts(V.Args.Row).Type!FieldValTrim,=,"CRM")
+		F.Intrinsic.Control.If(V.DataTable.dtARContacts(V.Args.Row).E-Invoicing_Flg!FieldValTrim,>,0)
+			F.Intrinsic.Math.Sub(V.DataTable.dtARContacts(V.Args.Row).E-Invoicing_Flg!FieldValTrim,1,V.Local.ieInvFlg)
+			F.Intrinsic.String.Build("UPDATE CRM_CONTACT_AUX SET E_PROG_SETTINGS = '{0}' WHERE CID = '{1}'",V.Local.ieInvFlg,V.DataTable.dtARContacts(V.Args.Row).CID!FieldValTrim,V.Local.sSQL)
+			f.ODBC.Connection!con.Execute(V.Local.sSQL)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.UI.Msgbox("This contact is not currently setup for E-Invoicing.")
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.CallSub(load)
+	F.Intrinsic.Control.EndIf
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}.",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.deleteRow.End
+
+Program.Sub.addRow.Start
+F.Intrinsic.Control.Try
+	V.Local.iEinvFlg.Declare
+	V.Local.sSQL.Declare
+	V.Local.sTemp.Declare
+	V.Local.sRet.Declare
+	V.Local.sEmailsUnsplit.Declare
+	V.Local.sEmails.Declare
+	V.Local.iCtr.Declare
+	V.Local.sError.Declare
+	V.Local.bRet.Declare
+	V.Local.bRet2.Declare
+	V.Local.bRet3.Declare
+	
+	F.Intrinsic.Control.If(V.DataTable.dtARContacts(V.Args.Row).Type!FieldValTrim,=,"CRM")
+		F.Intrinsic.Math.Mod(V.DataTable.dtARContacts(V.Args.Row).E-Invoicing_Flg!FieldValTrim,2,V.Local.iEinvFlg) 'E_PROG_SETTINGS is binary flag. When E-Invoicing set, flag is odd.
+		F.Intrinsic.Control.If(V.Local.iEinvFlg,=,1)
+			F.Intrinsic.UI.Msgbox("E-Invoicing is already enabled for this contact.")
+			F.Intrinsic.Control.ExitSub
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Math.Add(V.DataTable.dtARContacts(V.Args.Row).E-Invoicing_Flg!FieldValTrim,1,V.Local.iEinvFlg)
+			F.Intrinsic.String.Build("UPDATE CRM_CONTACT_AUX SET E_PROG_SETTINGS = '{0}' WHERE CID = '{1}';",V.Local.iEinvFlg,V.DataTable.dtARContacts(V.Args.Row).CID!FieldValTrim,V.Local.sSQL)
+			f.ODBC.Connection!con.Execute(V.Local.sSQL)
+			F.Intrinsic.Control.CallSub(load)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.If(V.DataTable.dtARContacts(V.Args.Row).Type!FieldValTrim,=,"AR")
+			F.Intrinsic.String.Build("Enter address for customer {0} ({1}):",V.DataTable.dtARContacts(V.Args.Row).CustomerName!FieldValTrim,V.DataTable.dtARContacts(V.Args.Row).CustomerNum!FieldValTrim,V.Local.sTemp)
+			F.Intrinsic.UI.Inputbox(V.Local.sTemp,"Add E-Invoice Address","",V.Local.sRet)
+			'F.Intrinsic.Control.If(V.Local.sRet.IsNotCancel)
+				F.Intrinsic.String.IsInString(V.Local.sRet,"@",True,V.Local.bRet)
+				F.Intrinsic.String.IsInString(V.Local.sRet,".",True,V.Local.bRet2)
+				F.Intrinsic.String.IsInString(V.Local.sRet," ",True,V.Local.bRet3)				
+				F.Intrinsic.Control.If(V.Local.sRet.isCancel)
+					F.Intrinsic.UI.Msgbox("An email must be entered.")
+				F.Intrinsic.Control.ElseIf(V.Local.bRet,=,False)
+					F.Intrinsic.UI.Msgbox("Email format incorrect. Please verify format before resubmitting.")
+				F.Intrinsic.Control.ElseIf(V.Local.bRet2,=,False)
+					F.Intrinsic.UI.Msgbox("Email format incorrect. Please verify format before resubmitting.")
+				F.Intrinsic.Control.ElseIf(V.Local.bRet3,=,True)
+					F.Intrinsic.UI.Msgbox("Email cannot contain spaces. Please verify format before resubmitting.")				
+				F.Intrinsic.Control.ElseIf(V.Local.sRet,<>,"")
+					F.Intrinsic.Control.If(V.DataTable.dtARContacts(V.Args.Row).E-Invoicing!FieldVal,=,False)
+						F.Intrinsic.String.Build("INSERT INTO PPT_EINV_COPT (CUSTOMER_ID, ADDL_EMAILS) VALUES ('{0}', '{1}');",V.DataTable.dtARContacts(V.Args.Row).CustomerNum!FieldValTrim,V.Local.sRet,V.Local.sSQL)
+						F.ODBC.Connection!con.Execute(V.Local.sSQL)
+						F.Intrinsic.Control.CallSub(load)
+					F.Intrinsic.Control.Else
+						'Get addresses for customer
+						F.Intrinsic.String.Build("SELECT ADDL_EMAILS FROM PPT_EINV_COPT WHERE CUSTOMER_ID = '{0}';",V.DataTable.dtARContacts(V.Args.Row).CustomerNum!FieldValTrim,V.Local.sSQL)
+						F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sEmailsUnsplit)
+						F.Intrinsic.String.Split(V.Local.sEmailsUnsplit,",",V.Local.sEmails)
+						'Check for and prevent duplicate addresses
+						F.Intrinsic.Control.For(V.Local.iCtr,0,V.Local.sEmails.UBound,1)
+							F.Intrinsic.Control.If(V.Local.sEmails(V.Local.iCtr),=,V.Local.sRet)
+								F.Intrinsic.UI.Msgbox("The address already exists for this customer.")
+								F.Intrinsic.Control.ExitSub
+							F.Intrinsic.Control.EndIf
+						F.Intrinsic.Control.Next(V.Local.iCtr)
+						'Add address
+						F.Intrinsic.String.Build("UPDATE PPT_EINV_COPT SET ADDL_EMAILS = (REPLACE(ADDL_EMAILS,'{0}','{0},{1}')) WHERE CUSTOMER_ID = '{2}';",V.Local.sEmailsUnsplit,V.Local.sRet,V.DataTable.dtARContacts(V.Args.Row).CustomerNum!FieldValTrim,V.Local.sSQL)
+						F.ODBC.Connection!con.Execute(V.Local.sSQL)
+						F.Intrinsic.Control.CallSub(load)
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.EndIf
+			'F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}.",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.addRow.End
+
+Program.Sub.rowClick.Start
+F.Intrinsic.Control.Try
+	V.Local.bRet.Declare
+	V.Local.iRet.Declare
+	V.Local.sError.Declare
+	
+	F.Intrinsic.Control.SelectCase(V.Args.Column)
+		F.Intrinsic.Control.Case("Remove")
+			F.Intrinsic.Control.CallSub(deleteRow,"Row",V.Args.RowIndex)
+			
+		F.Intrinsic.Control.Case("Add")
+			F.Intrinsic.Control.CallSub(addRow,"Row",V.Args.RowIndex)
+			
+		F.Intrinsic.Control.Case("Select")
+			gui.fMain.gsgcAR.GetColumnIndexByName("gvARContacts","Select",V.Local.iRet)
+			gui.fMain.gsgcAR.GetCellValue("gvARContacts",V.Local.iRet,V.Args.RowIndex,V.Local.bRet)
+			f.Intrinsic.Control.If(V.Local.bRet,=,True)
+				Gui.fMain.gsgcAR.SetCellValue("gvARContacts",V.Local.iRet,V.Args.RowIndex,False)
+			F.Intrinsic.Control.Else
+				Gui.fMain.gsgcAR.SetCellValue("gvARContacts",V.Local.iRet,V.Args.RowIndex,True)
+			f.Intrinsic.Control.EndIf
+			
+	F.Intrinsic.Control.EndSelect
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}.",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.rowClick.End
+
+Program.Sub.formatGrids.Start
+F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.iCnt.Declare
+	V.Local.sColumns.Declare
+	
+	'Create GV from DT
+	gui.fMain.gsgcAR.AddGridViewFromDataTable("gvARContacts","dtARContacts")
+	
+	'Set Grid Properties
+	gui.fMain.gsgcAR.SuspendLayout()
+	gui.fMain.gsgcAR.SetGridViewProperty("gvARContacts","MultiSelect",True)
+	gui.fMain.gsgcAR.SetGridViewProperty("gvARContacts","AllowSort",True)
+	gui.fMain.gsgcAR.SetGridViewProperty("gvARContacts","AllowFilter",True)
+	gui.fMain.gsgcAR.SetGridViewProperty("gvARContacts","OptionsDetailShowDetailTabs",False)
+	gui.fMain.gsgcAR.SetGridViewProperty("gvARContacts","OptionsViewShowGroupPanel",True)
+	gui.fMain.gsgcAR.SetGridviewProperty("gvARContacts","EnableAppearanceOddRow",True)
+	
+	'Format grid columns
+	'Loop through columns names by using the V.DataTable.dtName.FieldNames
+	F.Intrinsic.String.Split(V.DataTable.dtARContacts.FieldNames,"*!*",V.Local.sColumns)
+	F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sColumns.UBound,1)
+		gui.fMain.gsgcAR.SetColumnProperty("gvARContacts",V.Local.sColumns(V.Local.iCnt),"HeaderFontBold",True)
+		gui.fMain.gsgcAR.SetColumnProperty("gvARContacts",V.Local.sColumns(V.Local.iCnt),"HeaderHAlignment","Center")
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+	'CustomerNum
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","CustomerNum","Caption","Cust No")
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","CustomerNum","Width",80)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","CustomerNum","FixedWidth",True)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","CustomerNum","AllowEdit",False)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","CustomerNum","ReadOnly",True)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","CustomerNum","CellHAlignment","Center")
+	'gui.fMain.gsgcAR.AddSummaryItem("gvARContacts","CustomerNum","CustomerNum","COUNT","Total: ","",n0)
+	'CustomerName
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","CustomerName","Caption","Cust Name")
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","CustomerName","Width",150)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","CustomerName","FixedWidth",True)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","CustomerName","AllowEdit",False)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","CustomerName","ReadOnly",True)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","CustomerName","CellHAlignment","Left")
+	'Email
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","Email","Caption","Email")
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","Email","Width",150)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","Email","FixedWidth",True)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","Email","AllowEdit",True)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","Email","ReadOnly",True)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","Email","CellHAlignment","Left")
+	'Contact
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","Contact","Caption","Contact")
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","Contact","Width",150)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","Contact","FixedWidth",True)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","Contact","AllowEdit",True)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","Contact","ReadOnly",True)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","Contact","CellHAlignment","Left")
+	'E-Invoicing_Flg
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","E-Invoicing_Flg","Visible",False)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","E-Invoicing_Flg","Caption","E-Inv Flag")
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","E-Invoicing_Flg","Width",80)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","E-Invoicing_Flg","FixedWidth",True)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","E-Invoicing_Flg","AllowEdit",False)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","E-Invoicing_Flg","ReadOnly",True)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","E-Invoicing_Flg","CellHAlignment","Center")
+	'E-Invoicing
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","E-Invoicing","Caption","E-Invoicing")
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","E-Invoicing","Width",70)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","E-Invoicing","FixedWidth",True)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","E-Invoicing","AllowEdit",False)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","E-Invoicing","ReadOnly",True)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","E-Invoicing","CellHAlignment","Center")
+	'Type
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","Type","VisibleIndex","1")
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","Type","Caption","Type")
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","Type","Width",50)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","Type","FixedWidth",True)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","Type","AllowEdit",False)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","Type","ReadOnly",True)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","Type","CellHAlignment","Center")
+	'CID
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","CID","Visible",False)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","CID","Caption","CID")
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","CID","Width",80)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","CID","FixedWidth",True)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","CID","AllowEdit",False)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","CID","ReadOnly",True)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","CID","CellHAlignment","Center")
+	'Select
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","Select","VisibleIndex","0")
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","Select","Caption","Select")
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","Select","Width",50)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","Select","FixedWidth",True)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","Select","AllowEdit",False)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","Select","ReadOnly",True)
+	gui.fMain.gsgcAR.SetColumnProperty("gvARContacts","Select","CellHAlignment","Center")
+	
+	gui.fMain.gsgcAR.ResumeLayout()
+	gui.fMain.gsgcAR.MainView("gvARContacts")
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}.",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.formatGrids.End
+
+Program.Sub.load.Start
+F.Intrinsic.Control.Try
+	V.Local.iCtr.Declare
+	V.Local.sSerialize.Declare
+	V.Local.sError.Declare
+	
+	f.Intrinsic.Control.If(V.DataTable.dtARContacts.Exists)
+		Gui.fMain.gsgcAR.Serialize("gvARContacts",V.Local.sSerialize)	
+	f.Intrinsic.Control.EndIf
+	
+	'Load data
+	F.Intrinsic.UI.InvokeWaitDialog("Loading AR Contacts... Please Wait...","AR Contacts")
+	f.Intrinsic.Control.CallSub(load_AR)
+	F.Intrinsic.UI.CloseWaitDialog
+	F.Intrinsic.UI.InvokeWaitDialog("Loading CRM Contacts... Please Wait...","CRM Contacts")
+	F.Intrinsic.Control.CallSub(load_CRM)
+	F.Intrinsic.UI.CloseWaitDialog
+	F.Data.DataTable.Merge("dtCRMContacts","dtARContacts",True,2)
+
+	F.Intrinsic.Control.If(V.DataView.dtARContacts!dvARContacts.Exists)
+		F.Data.DataView.Close("dtARContacts","dvARContacts")
+	F.Intrinsic.Control.EndIf
+	F.Data.DataView.Create("dtARContacts","dvARContacts")
+	
+	F.Intrinsic.Control.If(V.DataTable.dtCustomerDistinct.Exists)
+		F.Data.DataTable.Close("dtCustomerDistinct")
+	F.Intrinsic.Control.EndIf
+	F.Data.DataView.ToDataTableDistinct("dtARContacts","dvARContacts","dtCustomerDistinct","CustomerNum",True)
+	Gui.fMain.lblNumCusts.Caption(V.DataTable.dtCustomerDistinct.RowCount)
+	
+	F.Intrinsic.Control.If(V.DataView.dtARContacts!dvEInv.Exists)
+		F.Data.DataView.Close("dtARContacts","dvEinv")
+	F.Intrinsic.Control.EndIf
+	F.Data.DataView.Create("dtARContacts","dvEInv",22,"[E-Invoicing] = True",)
+	
+	F.Intrinsic.Control.If(V.DataTable.dtEinvDistinct.Exists)
+		F.Data.DataTable.Close("dtEinvDistinct")
+	F.Intrinsic.Control.EndIf
+	F.Data.DataView.ToDataTableDistinct("dtARContacts","dvEinv","dtEinvDistinct","CustomerNum",True)
+	Gui.fMain.lblNumEinv.Caption(V.DataTable.dtEinvDistinct.RowCount)
+	
+	f.Intrinsic.Control.CallSub(formatGrids)
+	
+	F.Intrinsic.Control.If(V.Local.sSerialize,<>,"")
+		gui.fMain.gsgcAR.Deserialize(V.Local.sSerialize)
+	F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}.",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+
+Program.Sub.load.End
+
+Program.Sub.populateAux.Start
+F.Intrinsic.Control.Try
+	v.Local.sSQL.Declare
+	v.Local.iFlag.Declare
+	V.Local.sError.Declare
+	
+		f.ODBC.Connection!con.OpenRecordsetRW("rstLU","Select Alt_ID from Contact")
+		f.Intrinsic.Control.DoUntil(v.ODBC.con!rstLU.EOF,=,True)
+			f.Intrinsic.String.Concat("Select * from CRM_Contact_Aux where CID=",v.ODBC.con!rstLU.FieldValString!Alt_ID,v.Local.sSQL)
+			f.ODBC.Connection!con.OpenLocalRecordsetRW("rstAux",V.Local.sSQL)
+			f.Intrinsic.Control.If(v.ODBC.con!rstAux.EOF,=,True)
+				f.ODBC.con!rstAux.AddNew
+				f.ODBC.con!rstAux.Set!CID(v.ODBC.con!rstLU.FieldVal!Alt_ID)
+				f.ODBC.con!rstAux.Set!ShipToID("")
+				f.ODBC.con!rstAux.Set!Prim_ShipTo_Contact(0)
+				f.ODBC.con!rstAux.Set!Prim_Address3("")
+				f.ODBC.con!rstAux.Set!Prim_Address4("")
+				f.ODBC.con!rstAux.Set!Prim_Address5("")
+				f.ODBC.con!rstAux.Set!Prim_Country("")
+				f.ODBC.con!rstAux.Set!ShipTo_Address3("")
+				f.ODBC.con!rstAux.Set!ShipTo_Address4("")
+				f.ODBC.con!rstAux.Set!ShipTo_Address5("")
+				f.ODBC.con!rstAux.Set!ShipTo_Country("")
+				f.ODBC.con!rstAux.Set!Intercept(0)
+				F.ODBC.con!rstAux.Set!E_Prog_Settings(0)
+				f.ODBC.con!rstAux.update
+			f.Intrinsic.Control.EndIf
+			f.ODBC.con!rstAux.Close
+			f.ODBC.con!rstLU.MoveNext
+		f.Intrinsic.Control.Loop
+	
+		f.ODBC.con!rstLU.Close
+		
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}.",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.populateAux.End
+
+Program.Sub.ConvertAR.Start
+F.Intrinsic.Control.Try
+	V.Local.sMsg.Declare
+	V.Local.bExists.Declare(False)
+	V.Local.iCtr.Declare
+	V.Local.sError.Declare
+	V.Local.sSQL.Declare
+	V.Local.sEmails.Declare
+	V.Local.sEmailsUnsplit.Declare
+	V.Local.ieInvFlg.Declare
+	V.Local.sRet.Declare
+	V.Local.sRet2.Declare
+	V.Local.bChg.Declare(Boolean,False)
+	
+	V.Local.sSelect.Declare
+	V.Local.iCnt.Declare
+		
+	F.Data.DataTable.Select("dtARContacts","Type = 'CRM' and Select = True and [E-Invoicing] = True",V.Local.sSelect)
+	F.Intrinsic.Control.If(V.Local.sSelect.IsNotNoReturn)
+		V.Local.bChg.Set(False)
+		F.Intrinsic.String.Split(V.Local.sSelect,"*!*",V.Local.sSelect)
+		F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sSelect.UBound,1)
+			'Function.Intrinsic.UI.Msgbox(V.DataTable.dtARContacts(V.Local.sSelect(V.Local.iCnt)).Email!FieldValTrim)
+			F.Intrinsic.Control.If(V.DataTable.dtARContacts(V.Local.sSelect(V.Local.iCnt)).Email!FieldValTrim,<>,"")
+			
+				'Query PPT_EINV_COPT for existing record for customer
+				F.Intrinsic.String.Build("SELECT ADDL_EMAILS FROM PPT_EINV_COPT WHERE CUSTOMER_ID = '{0}';",V.DataTable.dtARContacts(V.Local.sSelect(V.Local.iCnt)).CustomerNum!FieldValTrim,V.Local.sSQL)
+				F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sEmailsUnsplit)
+				F.Intrinsic.String.Split(V.Local.sEmailsUnsplit,",",V.Local.sEmails)
+				F.Intrinsic.Control.If(V.Local.sEmailsUnsplit,=,"")
+					'If no record exists, simple insert
+					F.Intrinsic.String.Build("INSERT INTO PPT_EINV_COPT (CUSTOMER_ID,ADDL_EMAILS) VALUES ('{0}','{1}');",V.DataTable.dtARContacts(V.Local.sSelect(V.Local.iCnt)).CustomerNum!FieldValTrim,V.DataTable.dtARContacts(V.Local.sSelect(V.Local.iCnt)).Email!FieldValTrim,V.Local.sSQL)
+					F.ODBC.Connection!con.Execute(V.Local.sSQL)
+					V.Local.bChg.Set(True)
+				F.Intrinsic.Control.EndIf
+				
+				'Check for and prevent duplicate addresses
+				F.Intrinsic.Control.For(V.Local.iCtr,0,V.Local.sEmails.UBound,1)
+					F.Intrinsic.Control.If(V.Local.sEmails(V.Local.iCtr),=,V.DataTable.dtARContacts(V.Local.sSelect(V.Local.iCnt)).Email!FieldValTrim)
+						V.Local.bExists.Set(True)
+						F.Intrinsic.Control.ExitFor
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.Next(V.Local.iCtr)
+				
+				'Add address if it doesn't already exist
+				F.Intrinsic.Control.If(V.Local.bExists,=,False)
+					F.Intrinsic.String.Build("UPDATE PPT_EINV_COPT SET ADDL_EMAILS = (REPLACE(ADDL_EMAILS,'{0}','{0},{1}')) WHERE CUSTOMER_ID = '{2}';",V.Local.sEmailsUnsplit,V.DataTable.dtARContacts(V.Local.sSelect(V.Local.iCnt)).Email!FieldValTrim,V.DataTable.dtARContacts(V.Local.sSelect(V.Local.iCnt)).CustomerNum!FieldValTrim,V.Local.sSQL)
+					F.ODBC.Connection!con.Execute(V.Local.sSQL)
+					V.Local.bChg.Set(True)
+				F.Intrinsic.Control.EndIf
+				
+				'Delete Row from CRM
+				F.Intrinsic.Control.If(V.DataTable.dtARContacts(V.Local.sSelect(V.Local.iCnt)).E-invoicing_Flg!FieldValTrim,>,0)
+					F.Intrinsic.Math.Sub(V.DataTable.dtARContacts(V.Local.sSelect(V.Local.iCnt)).E-Invoicing_Flg!FieldValTrim,1,V.Local.ieInvFlg)
+					F.Intrinsic.String.Build("UPDATE CRM_CONTACT_AUX SET E_PROG_SETTINGS = '{0}' WHERE CID = '{1}'",V.Local.ieInvFlg,V.DataTable.dtARContacts(V.Local.sSelect(V.Local.iCnt)).CID!FieldValTrim,V.Local.sSQL)
+					f.ODBC.Connection!con.Execute(V.Local.sSQL)
+					V.Local.bChg.Set(True)
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.Else
+				F.Intrinsic.String.Build("No email saved for contact {0} ({1}){2}Could not convert to AR contact.",V.DataTable.dtARContacts(V.Local.sSelect(V.Local.iCnt)).Contact!FieldValTrim,V.DataTable.dtARContacts(V.Local.sSelect(V.Local.iCnt)).CustomerNum!FieldValTrim,V.Ambient.NewLine,V.Local.sMsg)
+				F.Intrinsic.UI.Msgbox(V.Local.sMsg)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Next(V.Local.iCnt)
+		
+		F.Intrinsic.Control.If(V.Local.bChg,=,True)
+			F.Intrinsic.Control.CallSub(Load)
+		F.Intrinsic.Control.EndIf
+		
+	F.Intrinsic.Control.EndIf
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}.",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.ConvertAR.End
+
+Program.Sub.ConvertCRM.Start
+F.Intrinsic.Control.Try
+	V.Local.iCtr.Declare
+	V.Local.iCtr2.Declare
+	V.Local.iCtr3.Declare
+	V.Local.iCtr4.Declare
+	V.Local.sEmail.Declare
+	V.Local.sSQL.Declare
+	V.Local.sRet.Declare
+	V.Local.sRet2.Declare
+	V.Local.sContactEmail.Declare
+	V.Local.iIDs.Declare
+	V.Local.sFilter.Declare
+	V.Local.ieInvFlg.Declare
+	V.Local.sCustNum.Declare
+	V.Local.sError.Declare
+	V.Local.bChg.Declare(Boolean,False)
+	
+	V.Local.sSelect.Declare
+	V.Local.iCnt.Declare
+		
+		F.Data.DataTable.Select("dtARContacts","Type = 'AR' and Select = True and Email <> '' and [E-Invoicing] = True",V.Local.sSelect)
+		F.Intrinsic.Control.If(V.Local.sSelect.IsNotNoReturn)
+			F.Intrinsic.String.Split(V.Local.sSelect,"*!*",V.Local.sSelect)
+		 	F.Intrinsic.Control.For(V.Local.iCnt,0,V.Local.sSelect.UBound,1)
+		 		V.Global.bSuccess.Set(False)
+		 		F.Intrinsic.Control.If(V.DataTable.dtEmails.Exists)
+		 			F.Data.DataTable.Close("dtEmails")
+		 		F.Intrinsic.Control.EndIf
+				F.Data.DataTable.Create("dtEmails",True)
+				F.Data.DataTable.AddColumn("dtEmails","ALT_ID","Long")
+				F.Data.DataTable.AddColumn("dtEmails","CONTACT","String")
+				F.Data.DataTable.AddColumn("dtEmails","EMAIL","String")
+				F.Data.DataTable.AddColumn("dtEmails","E_PROG_SETTINGS","String")
+				
+				'Check if any contacts exist for customer
+				F.Intrinsic.String.Build("SELECT A.ALT_ID, A.NAME, A.EMAIL1, B.E_PROG_SETTINGS FROM CONTACT A LEFT OUTER JOIN CRM_CONTACT_AUX B ON A.ALT_ID = B.CID WHERE CUST = '{0}'",V.DataTable.dtARContacts(V.Local.sSelect(V.Local.iCnt)).CustomerNum!FieldValTrim,V.Local.sSQL)
+				F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet)
+				V.Global.iCtr.Set(V.Local.sSelect(V.Local.iCnt))
+				
+				'***********************************
+				'No CRM contacts exist for customer
+				'***********************************
+				F.Intrinsic.Control.If(V.Local.sRet,=,"") 
+					'Create New Contact
+					Gui.fNewContact.lblCustName.Caption(V.DataTable.dtARContacts(V.Local.sSelect(V.Local.iCnt)).CustomerName!FieldValTrim)
+					Gui.fNewContact.lblCustNum.Caption(V.DataTable.dtARContacts(V.Local.sSelect(V.Local.iCnt)).CustomerNum!FieldValTrim)
+					Gui.fNewContact.txtEmail.Text(V.DataTable.dtARContacts(V.Local.sSelect(V.Local.iCnt)).Email!FieldValTrim)
+					Gui.fNewContact..Show()
+					Gui.fNewContact..WaitForDismiss()
+					
+					F.Intrinsic.Control.If(V.Global.bSuccess,=,True)
+						f.Intrinsic.Control.CallSub(disableARContact)
+					F.Intrinsic.Control.EndIf
+					
+					V.Local.bChg.Set(True)
+					F.Intrinsic.Control.Next(V.Local.iCnt)
+				
+				'*********************************************
+				'At least one CRM contact exists for customer
+				'*********************************************		
+				F.Intrinsic.Control.Else 
+					F.Intrinsic.String.Split(V.Local.sRet,"#$#",V.Local.sRet) 'Break returned IDs apart
+					F.Intrinsic.Control.For(V.Local.iCtr2,0,V.Local.sRet.UBound,1) 'Loop through existing contacts to find matching address, if there is one
+						F.Intrinsic.String.Split(V.Local.sRet(V.Local.iCtr2),"*!*",V.Local.sRet2)
+						F.Intrinsic.String.Build("SELECT RTRIM(EMAIL1) FROM CONTACT WHERE ALT_ID = {0}",V.Local.sRet2(0),V.Local.sSQL)	
+						F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sContactEmail) 'Get email associated with Contact
+						V.Local.sEmail.Set(V.DataTable.dtARContacts(V.Local.sSelect(V.Local.iCnt)).Email!FieldValTrim)
+						F.Intrinsic.Control.If(V.Local.sContactEmail.UCase,=,V.Local.sEmail.Ucase) 'If emails match
+							F.Data.DataTable.AddRow("dtEmails","ALT_ID",V.Local.sRet2(0),"CONTACT",V.Local.sRet2(1),"EMAIL",V.Local.sRet2(2),"E_PROG_SETTINGS",V.Local.sRet2(3)) 'Add email to list/array
+						F.Intrinsic.Control.EndIf				
+					F.Intrinsic.Control.Next(V.Local.iCtr2)	
+						
+				F.Intrinsic.Control.EndIf
+							
+				'************************************************************
+				'More that one CRM contact exists with matching email address
+				'************************************************************
+				F.Intrinsic.Control.If(V.DataTable.dtEmails.RowCount,>,1) 
+					F.Intrinsic.String.Build("({0})",V.DataTable.dtARContacts(V.Local.sSelect(V.Local.iCnt)).CustomerNum!FieldValTrim,V.Local.sCustNum)
+					Gui.fMultiContact.lblCustNum.Caption(V.Local.sCustNum)
+					Gui.fMultiContact.lblCustName.Caption(V.DataTable.dtARContacts(V.Local.sSelect(V.Local.iCnt)).CustomerName!FieldValTrim)
+					Gui.fMultiContact.lblEmail.Caption(V.Local.sEmail)
+					F.Intrinsic.Control.For(V.Local.iCtr4,0,V.DataTable.dtEmails.RowCount--,1)
+						F.Intrinsic.Control.SelectCase(V.Local.iCtr4)
+							F.Intrinsic.Control.Case(0)
+								gui.fMultiContact.opt1.Caption(V.DataTable.dtEmails(0).CONTACT!FieldValTrim)
+								gui.fMultiContact.opt1.Enabled(True)
+								gui.fMultiContact.opt1.Visible(True)
+							F.Intrinsic.Control.Case(1)
+								gui.fMultiContact.opt2.Caption(V.DataTable.dtEmails(1).CONTACT!FieldValTrim)
+								gui.fMultiContact.opt2.Enabled(true)
+								gui.fMultiContact.opt2.Visible(True)
+							F.Intrinsic.Control.Case(2)
+								gui.fMultiContact.opt3.Caption(V.DataTable.dtEmails(2).CONTACT!FieldValTrim)
+								gui.fMultiContact.opt3.Enabled(True)
+								gui.fMultiContact.opt3.Visible(True)
+							F.Intrinsic.Control.Case(3)
+								gui.fMultiContact.opt4.Caption(V.DataTable.dtEmails(3).CONTACT!FieldValTrim)
+								gui.fMultiContact.opt4.Enabled(True)
+								gui.fMultiContact.opt4.Visible(True)
+						F.Intrinsic.Control.EndSelect
+					F.Intrinsic.Control.Next(V.Local.iCtr4)
+		
+					
+					gui.fMultiContact..Show
+					gui.fMultiContact..WaitForDismiss	
+		
+				'**************************************************
+				'One CRM contact exists with matching email address
+				'**************************************************
+				F.Intrinsic.Control.ElseIf(V.DataTable.dtEmails.RowCount,=,1) 
+	
+			
+					F.Intrinsic.Math.Mod(V.DataTable.dtEmails(0).E_PROG_SETTINGS!FieldVal,2,V.Local.ieInvFlg) 'Mod E_PROG_SETTINGS flag to determine if E-Invoicing enabled/disabled
+				
+					F.Intrinsic.Control.If(V.Local.ieInvFlg,=,0) 'If E-Invoicing disabled for contact...
+						F.Intrinsic.Math.Add(V.Local.ieInvFlg,1,V.Local.ieInvFlg)
+						F.Intrinsic.String.Build("UPDATE CRM_CONTACT_AUX SET E_PROG_SETTINGS = {0} WHERE CID = {1}",V.Local.ieInvFlg,V.DataTable.dtEmails(0).ALT_ID!FieldVal,V.Local.sSQL)
+						F.ODBC.Connection!con.Execute(V.Local.sSQL) 'Update Contact to enable E-Invoicing
+					F.Intrinsic.Control.EndiF
+					
+					F.Intrinsic.Control.CallSub(disableARContact)
+					V.Local.bChg.Set(True)
+			
+				'**************************************************
+				'No contacts found with matching email address
+				'Add contact or maybe prompt whether they want
+				'to choose a diff contact or create a new contact
+				'**************************************************			
+				F.Intrinsic.Control.ElseIf(V.DataTable.dtEmails.RowCount,=,0)
+		
+					'format fPrompt for customer info
+					Gui.fPrompt.lblCustNum.Caption(V.DataTable.dtARContacts(V.Local.sSelect(V.Local.iCnt)).CustomerNum!FieldValTrim)
+					Gui.fPrompt.lblCustName.Caption(V.DataTable.dtARContacts(V.Local.sSelect(V.Local.iCnt)).CustomerName!FieldValTrim)
+					Gui.fPrompt.lblEmail.Caption(V.DataTable.dtARContacts(V.Local.sSelect(V.Local.iCnt)).Email!FieldValTrim)
+					
+					Gui.fPrompt..Show()
+					Gui.fPrompt..WaitForDismiss()
+					
+					F.Intrinsic.Control.If(V.Global.bSuccess,=,True)
+						F.Intrinsic.Control.CallSub(DisableARContact)
+					F.Intrinsic.Control.EndIf
+					
+					'V.Local.bChg.Set(True)
+		
+				F.Intrinsic.Control.EndIf						
+				F.Data.DataTable.Close("dtEmails")
+			 F.Intrinsic.Control.Next(V.Local.iCnt)
+			 
+			 F.Intrinsic.Control.If(V.Local.bChg,=,True)
+			 	F.Intrinsic.Control.CallSub(load)
+			 F.Intrinsic.Control.EndIf
+			 
+		F.Intrinsic.Control.EndIf
+	
+F.Data.DataTable.SetValue("dtARContacts",-1,"Select",False)
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}.",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.ConvertCRM.End
+
+Program.Sub.cmdOK_Click.Start
+F.Intrinsic.Control.Try
+	V.Local.iCtr.Declare
+	V.Local.ieInvFlg.Declare
+	V.Local.sSQL.Declare
+	V.Local.sRet.Declare
+	V.Local.iCtr3.Declare
+	V.Local.sError.Declare
+	
+	'F.Intrinsic.Debug.InvokeDebugger
+	'F.Intrinsic.Debug.Stop
+	
+	
+	F.Intrinsic.Control.For(V.Local.iCtr,0,3,1)
+		F.Intrinsic.Control.SelectCase(V.Local.iCtr)
+			F.Intrinsic.Control.Case(0)		
+				F.Intrinsic.Control.If(V.Screen.fMultiContact!opt1.Value,=,True)
+					F.Intrinsic.Math.Mod(V.DataTable.dtEmails(0).E_PROG_SETTINGS!FieldVal,2,V.Local.ieInvFlg) 'Mod E_PROG_SETTINGS flag to determine if E-Invoicing enabled/disabled	
+					F.Intrinsic.Control.If(V.Local.ieInvFlg,=,0) 'If E-Invoicing disabled for contact...
+						F.Intrinsic.Math.Add(V.Local.ieInvFlg,1,V.Local.ieInvFlg)
+						F.Intrinsic.String.Build("UPDATE CRM_CONTACT_AUX SET E_PROG_SETTINGS = '{0}' WHERE CID = '{1}'",V.Local.ieInvFlg,V.DataTable.dtEmails(0).ALT_ID!FieldVal,V.Local.sSQL)
+						f.ODBC.Connection!con.Execute(V.Local.sSQL)
+						F.Intrinsic.String.Build("SELECT ADDL_EMAILS FROM PPT_EINV_COPT WHERE CUSTOMER_ID = '{0}'",V.DataTable.dtARContacts(V.Global.iCtr).CustomerNum!FieldValTrim,V.Local.sSQL)
+						F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet) 'Find email in PPT_EINV_COPT table
+						F.Intrinsic.String.Split(V.Local.sRet,",",V.Local.sRet) 'Split emails into array
+						F.Intrinsic.Control.If(V.Local.sRet.Ubound,=,0) 'If only one email exists...
+							F.Intrinsic.String.Build("DELETE FROM PPT_EINV_COPT WHERE CUSTOMER_ID = '{0}'",V.DataTable.dtARContacts(V.Global.iCtr).CustomerNum!FieldValTrim,V.Local.sSQL)
+							f.ODBC.Connection!con.Execute(V.Local.sSQL) 'Delete the entire row
+						F.Intrinsic.Control.Else 'otherwise if more than one email exists
+							F.Intrinsic.Control.For(V.Local.iCtr3,0,V.Local.sRet.UBound,1) 'Loop through emails
+								F.Intrinsic.Control.If(V.Local.sRet(V.Local.iCtr3),=,V.Local.sEmail)
+									F.Intrinsic.Control.If(V.Local.iCtr3,=,0)
+										F.Intrinsic.String.Build("UPDATE PPT_EINV_COPT SET ADDL_EMAILS = (REPLACE(ADDL_EMAILS,'{0},',''))WHERE CUSTOMER_ID = '{1}'",V.Local.sEmail,V.DataTable.dtARContacts(V.Global.iCtr).CustomerNum!FieldValTrim,V.Local.sSQL)
+										f.ODBC.Connection!con.Execute(V.Local.sSQL) 'Remove first email
+									F.Intrinsic.Control.Else
+										'Delete email with preceding comma
+										F.Intrinsic.String.Build("UPDATE PPT_EINV_COPT SET ADDL_EMAILS = (REPLACE(ADDL_EMAILS,',{0}',''))WHERE CUSTOMER_ID = '{1}'",V.Local.sEmail,V.DataTable.dtARContacts(V.Global.iCtr).CustomerNum!FieldValTrim,V.Local.sSQL)
+										f.ODBC.Connection!con.Execute(V.Local.sSQL) 'Remove email from list
+									F.Intrinsic.Control.EndIf
+								F.Intrinsic.Control.EndIf
+							F.Intrinsic.Control.Next(V.Local.iCtr3)
+						F.Intrinsic.Control.EndIf
+					f.Intrinsic.Control.EndIf
+					'F.Intrinsic.Control.ExitFor
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.Case(1)
+				F.Intrinsic.Control.If(V.Screen.fMultiContact!opt2.Value,=,True)
+					F.Intrinsic.Math.Mod(V.DataTable.dtEmails(1).E_PROG_SETTINGS!FieldVal,2,V.Local.ieInvFlg) 'Mod E_PROG_SETTINGS flag to determine if E-Invoicing enabled/disabled	
+					F.Intrinsic.Control.If(V.Local.ieInvFlg,=,0) 'If E-Invoicing disabled for contact...
+						F.Intrinsic.Math.Add(V.Local.ieInvFlg,1,V.Local.ieInvFlg)
+						F.Intrinsic.String.Build("UPDATE CRM_CONTACT_AUX SET E_PROG_SETTINGS = '{0}' WHERE CID = '{1}'",V.Local.ieInvFlg,V.DataTable.dtEmails(1).ALT_ID!FieldVal,V.Local.sSQL)
+						f.ODBC.Connection!con.Execute(V.Local.sSQL)
+						F.Intrinsic.String.Build("SELECT ADDL_EMAILS FROM PPT_EINV_COPT WHERE CUSTOMER_ID = '{0}'",V.DataTable.dtARContacts(V.Global.iCtr).CustomerNum!FieldValTrim,V.Local.sSQL)
+						F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet) 'Find email in PPT_EINV_COPT table
+						F.Intrinsic.String.Split(V.Local.sRet,",",V.Local.sRet) 'Split emails into array
+						F.Intrinsic.Control.If(V.Local.sRet.Ubound,=,0) 'If only one email exists...
+							F.Intrinsic.String.Build("DELETE FROM PPT_EINV_COPT WHERE CUSTOMER_ID = '{0}'",V.DataTable.dtARContacts(V.Global.iCtr).CustomerNum!FieldValTrim,V.Local.sSQL)
+							f.ODBC.Connection!con.Execute(V.Local.sSQL) 'Delete the entire row
+						F.Intrinsic.Control.Else 'otherwise if more than one email exists
+							F.Intrinsic.Control.For(V.Local.iCtr3,0,V.Local.sRet.UBound,1) 'Loop through emails
+								F.Intrinsic.Control.If(V.Local.sRet(V.Local.iCtr3),=,V.Local.sEmail)
+									F.Intrinsic.Control.If(V.Local.iCtr3,=,0)
+										F.Intrinsic.String.Build("UPDATE PPT_EINV_COPT SET ADDL_EMAILS = (REPLACE(ADDL_EMAILS,'{0},',''))WHERE CUSTOMER_ID = '{1}'",V.Local.sEmail,V.DataTable.dtARContacts(V.Global.iCtr).CustomerNum!FieldValTrim,V.Local.sSQL)
+										f.ODBC.Connection!con.Execute(V.Local.sSQL) 'Remove first email
+									F.Intrinsic.Control.Else
+										'Delete email with preceding comma
+										F.Intrinsic.String.Build("UPDATE PPT_EINV_COPT SET ADDL_EMAILS = (REPLACE(ADDL_EMAILS,',{0}',''))WHERE CUSTOMER_ID = '{1}'",V.Local.sEmail,V.DataTable.dtARContacts(V.Global.iCtr).CustomerNum!FieldValTrim,V.Local.sSQL)
+										f.ODBC.Connection!con.Execute(V.Local.sSQL) 'Remove email from list
+									F.Intrinsic.Control.EndIf
+								F.Intrinsic.Control.EndIf
+							F.Intrinsic.Control.Next(V.Local.iCtr3)
+						F.Intrinsic.Control.EndIf
+					f.Intrinsic.Control.EndIf
+					'F.Intrinsic.Control.ExitFor
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.Case(2)
+				F.Intrinsic.Control.If(V.Screen.fMultiContact!opt3.Value,=,True)
+					F.Intrinsic.Math.Mod(V.DataTable.dtEmails(2).E_PROG_SETTINGS!FieldVal,2,V.Local.ieInvFlg) 'Mod E_PROG_SETTINGS flag to determine if E-Invoicing enabled/disabled	
+					F.Intrinsic.Control.If(V.Local.ieInvFlg,=,0) 'If E-Invoicing disabled for contact...
+						F.Intrinsic.Math.Add(V.Local.ieInvFlg,1,V.Local.ieInvFlg)
+						F.Intrinsic.String.Build("UPDATE CRM_CONTACT_AUX SET E_PROG_SETTINGS = '{0}' WHERE CID = '{1}'",V.Local.ieInvFlg,V.DataTable.dtEmails(2).ALT_ID!FieldVal,V.Local.sSQL)
+						f.ODBC.Connection!con.Execute(V.Local.sSQL)
+						F.Intrinsic.String.Build("SELECT ADDL_EMAILS FROM PPT_EINV_COPT WHERE CUSTOMER_ID = '{0}'",V.DataTable.dtARContacts(V.Global.iCtr).CustomerNum!FieldValTrim,V.Local.sSQL)
+						F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet) 'Find email in PPT_EINV_COPT table
+						F.Intrinsic.String.Split(V.Local.sRet,",",V.Local.sRet) 'Split emails into array
+						F.Intrinsic.Control.If(V.Local.sRet.Ubound,=,0) 'If only one email exists...
+							F.Intrinsic.String.Build("DELETE FROM PPT_EINV_COPT WHERE CUSTOMER_ID = '{0}'",V.DataTable.dtARContacts(V.Global.iCtr).CustomerNum!FieldValTrim,V.Local.sSQL)
+							f.ODBC.Connection!con.Execute(V.Local.sSQL) 'Delete the entire row
+						F.Intrinsic.Control.Else 'otherwise if more than one email exists
+							F.Intrinsic.Control.For(V.Local.iCtr3,0,V.Local.sRet.UBound,1) 'Loop through emails
+								F.Intrinsic.Control.If(V.Local.sRet(V.Local.iCtr3),=,V.Local.sEmail)
+									F.Intrinsic.Control.If(V.Local.iCtr3,=,0)
+										F.Intrinsic.String.Build("UPDATE PPT_EINV_COPT SET ADDL_EMAILS = (REPLACE(ADDL_EMAILS,'{0},',''))WHERE CUSTOMER_ID = '{1}'",V.Local.sEmail,V.DataTable.dtARContacts(V.Global.iCtr).CustomerNum!FieldValTrim,V.Local.sSQL)
+										f.ODBC.Connection!con.Execute(V.Local.sSQL) 'Remove first email
+									F.Intrinsic.Control.Else
+										'Delete email with preceding comma
+										F.Intrinsic.String.Build("UPDATE PPT_EINV_COPT SET ADDL_EMAILS = (REPLACE(ADDL_EMAILS,',{0}',''))WHERE CUSTOMER_ID = '{1}'",V.Local.sEmail,V.DataTable.dtARContacts(V.Global.iCtr).CustomerNum!FieldValTrim,V.Local.sSQL)
+										f.ODBC.Connection!con.Execute(V.Local.sSQL) 'Remove email from list
+									F.Intrinsic.Control.EndIf
+								F.Intrinsic.Control.EndIf
+							F.Intrinsic.Control.Next(V.Local.iCtr3)
+						F.Intrinsic.Control.EndIf
+					f.Intrinsic.Control.EndIf
+					'F.Intrinsic.Control.ExitFor
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.Case(3)
+				F.Intrinsic.Control.If(V.Screen.fMultiContact!opt4.Value,=,True)
+					F.Intrinsic.Math.Mod(V.DataTable.dtEmails(3).E_PROG_SETTINGS!FieldVal,2,V.Local.ieInvFlg) 'Mod E_PROG_SETTINGS flag to determine if E-Invoicing enabled/disabled	
+					F.Intrinsic.Control.If(V.Local.ieInvFlg,=,0) 'If E-Invoicing disabled for contact...
+						F.Intrinsic.Math.Add(V.Local.ieInvFlg,1,V.Local.ieInvFlg)
+						F.Intrinsic.String.Build("UPDATE CRM_CONTACT_AUX SET E_PROG_SETTINGS = '{0}' WHERE CID = '{1}'",V.Local.ieInvFlg,V.DataTable.dtEmails(3).ALT_ID!FieldVal,V.Local.sSQL)
+						f.ODBC.Connection!con.Execute(V.Local.sSQL)
+						F.Intrinsic.String.Build("SELECT ADDL_EMAILS FROM PPT_EINV_COPT WHERE CUSTOMER_ID = '{0}'",V.DataTable.dtARContacts(V.Global.iCtr).CustomerNum!FieldValTrim,V.Local.sSQL)
+						F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet) 'Find email in PPT_EINV_COPT table
+						F.Intrinsic.String.Split(V.Local.sRet,",",V.Local.sRet) 'Split emails into array
+						F.Intrinsic.Control.If(V.Local.sRet.Ubound,=,0) 'If only one email exists...
+							F.Intrinsic.String.Build("DELETE FROM PPT_EINV_COPT WHERE CUSTOMER_ID = '{0}'",V.DataTable.dtARContacts(V.Global.iCtr).CustomerNum!FieldValTrim,V.Local.sSQL)
+							f.ODBC.Connection!con.Execute(V.Local.sSQL) 'Delete the entire row
+						F.Intrinsic.Control.Else 'otherwise if more than one email exists
+							F.Intrinsic.Control.For(V.Local.iCtr3,0,V.Local.sRet.UBound,1) 'Loop through emails
+								F.Intrinsic.Control.If(V.Local.sRet(V.Local.iCtr3),=,V.Local.sEmail)
+									F.Intrinsic.Control.If(V.Local.iCtr3,=,0)
+										F.Intrinsic.String.Build("UPDATE PPT_EINV_COPT SET ADDL_EMAILS = (REPLACE(ADDL_EMAILS,'{0},',''))WHERE CUSTOMER_ID = '{1}'",V.Local.sEmail,V.DataTable.dtARContacts(V.Global.iCtr).CustomerNum!FieldValTrim,V.Local.sSQL)
+										f.ODBC.Connection!con.Execute(V.Local.sSQL) 'Remove first email
+									F.Intrinsic.Control.Else
+										'Delete email with preceding comma
+										F.Intrinsic.String.Build("UPDATE PPT_EINV_COPT SET ADDL_EMAILS = (REPLACE(ADDL_EMAILS,',{0}',''))WHERE CUSTOMER_ID = '{1}'",V.Local.sEmail,V.DataTable.dtARContacts(V.Global.iCtr).CustomerNum!FieldValTrim,V.Local.sSQL)
+										f.ODBC.Connection!con.Execute(V.Local.sSQL) 'Remove email from list
+									F.Intrinsic.Control.EndIf
+								F.Intrinsic.Control.EndIf
+							F.Intrinsic.Control.Next(V.Local.iCtr3)
+						F.Intrinsic.Control.EndIf
+					f.Intrinsic.Control.EndIf
+					'F.Intrinsic.Control.ExitFor
+				F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndSelect
+	F.Intrinsic.Control.Next(V.Local.iCtr)
+	Gui.fMultiContact..Visible(False)
+	F.Intrinsic.Control.CallSub(load)
+	'F.Intrinsic.UI.Msgbox("Please select a contact before continuing.")
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}.",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdOK_Click.End
+
+Program.Sub.cmdfNewContactOK_Click.Start
+F.Intrinsic.Control.Try
+	V.Local.bRet.Declare
+	V.Local.bRet2.Declare
+	V.Local.bRet3.Declare
+	V.Local.sSQL.Declare
+	V.Local.sName.Declare
+	V.Local.iAltID.Declare
+	V.Local.iCtr.Declare
+	V.Local.iCtr2.Declare
+	V.Local.sRet.Declare
+	V.Local.sID.Declare
+	V.Local.sError.Declare
+	
+	F.Intrinsic.String.IsInString(V.Screen.fNewContact!txtEmail.Caption,"@",True,V.Local.bRet)
+	F.Intrinsic.String.IsInString(V.Screen.fNewContact!txtEmail.Caption,".",True,V.Local.bRet2)
+	F.Intrinsic.String.IsInString(V.Screen.fNewContact!txtEmail.Caption," ",True,V.Local.bRet3)
+	F.Intrinsic.Control.If(V.Screen.fNewContact!txtEmail.Caption,=,"")
+		F.Intrinsic.UI.Msgbox("An email must be entered to continue.")
+	F.Intrinsic.Control.ElseIf(V.Local.bRet,=,False)
+		F.Intrinsic.UI.Msgbox("Email format incorrect. Please correct before continuing.")
+	F.Intrinsic.Control.ElseIf(V.Local.bRet2,=,False)
+		F.Intrinsic.UI.Msgbox("Email format incorrect. Please correct before continuing.")
+	F.Intrinsic.Control.ElseIf(V.Local.bRet3,=,True)
+		F.Intrinsic.UI.Msgbox("Email cannot include spaces. Please correct before continuing.")		
+	F.Intrinsic.Control.ElseIf(V.Screen.fNewContact!txtFName.Caption,=,"")
+		F.Intrinsic.UI.Msgbox("A first name must be entered to continue.")
+	F.Intrinsic.Control.ElseIf(V.Screen.fNewContact!txtLName.Caption,=,"")
+		F.Intrinsic.UI.Msgbox("A last name must be entered to continue.")
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.For(V.Local.iCtr,0,100000,1)
+			F.Intrinsic.String.Build("SELECT * FROM CONTACT WHERE ALT_ID = {0}",V.Local.iCtr,V.Local.sSQL)
+			F.ODBC.Connection!con.ExecuteandReturn(V.Local.sSQL,V.Local.sRet)
+			F.Intrinsic.Control.If(V.Local.sRet,=,"")
+				F.Intrinsic.Control.ExitFor(V.Local.iCtr)
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Next(V.Local.iCtr)
+		
+		F.Intrinsic.String.Build("SELECT ID FROM CONTACT WHERE CUST = '{0}' AND TYPE = 'C'",V.DataTable.dtARContacts(V.Global.iCtr).CustomerNum!FieldValTrim,V.Local.sSQL)
+		F.ODBC.Connection!con.ExecuteandReturn(V.Local.sSQL,V.Local.sRet)
+		F.Intrinsic.Control.For(V.Local.iCtr2,0,50,1)
+				F.Intrinsic.String.ConvertToString(V.Local.iCtr2,V.Local.sID)
+			F.Intrinsic.String.LPad(V.Local.sID,"0",9,V.Local.sID)
+			F.Intrinsic.String.IsInString(V.Local.sRet,V.Local.sID,True,V.Local.bRet)
+			F.Intrinsic.Control.If(V.Local.bRet,=,False)
+				F.Intrinsic.Control.ExitFor(V.Local.iCtr2)
+			F.Intrinsic.Control.EndIf			
+		F.Intrinsic.Control.Next(V.Local.iCtr2)
+	
+		
+		F.Intrinsic.String.Build("{0} {1}",V.Screen.fNewContact!txtFName.Caption,V.Screen.fNewContact!txtLName.Caption,V.Local.sName)
+		F.Intrinsic.String.Build("INSERT INTO CONTACT (CUST, TYPE, ID, NAME, NAME_FIRST, NAME_LAST, EMAIL1, ACTIVE, ALT_ID) VALUES ('{0}','C','{1}','{2}','{3}','{4}','{5}',1,{6});",V.DataTable.dtARContacts(V.Global.iCtr).CustomerNum!FieldValTrim,V.Local.sID,V.Local.sName,V.Screen.fNewContact!txtFName.Caption,V.Screen.fNewContact!txtLName.Caption,V.Screen.fNewContact!txtEmail.Caption,V.Local.iCtr,V.Local.sSQL)
+		F.ODBC.Connection!con.Execute(V.Local.sSQL)
+		F.Intrinsic.String.Build("INSERT INTO CRM_CONTACT_AUX (CID, PRIM_SHIPTO_CONTACT, INTERCEPT, E_PROG_SETTINGS) VALUES ({0},0,0,1);",V.Local.iCtr,V.Local.sSQL)
+		F.ODBC.Connection!con.Execute(V.Local.sSQL)
+		V.Global.bSuccess.Set(True)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.CallSub(fNewContact_UnLoad)
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}.",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdfNewContactOK_Click.End
+
+Program.Sub.fNewContact_UnLoad.Start
+Gui.fNewContact..Visible(False)
+Program.Sub.fNewContact_UnLoad.End
+
+Program.Sub.disableARcontact.Start
+F.Intrinsic.Control.Try
+	V.Local.sSQL.Declare
+	V.Local.sRet.Declare
+	V.Local.iCtr.Declare
+	V.Local.sEmail.Declare
+	V.Local.sError.Declare
+
+	
+	
+	F.Intrinsic.String.Build("SELECT ADDL_EMAILS FROM PPT_EINV_COPT WHERE CUSTOMER_ID = '{0}'",V.DataTable.dtARContacts(V.Global.iCtr).CustomerNum!FieldValTrim,V.Local.sSQL)
+	F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.sRet) 'Find email in PPT_EINV_COPT table
+	F.Intrinsic.String.Split(V.Local.sRet,",",V.Local.sRet) 'Split emails into array
+	F.Intrinsic.Control.If(V.Local.sRet.Ubound,=,0) 'If only one email exists...
+		F.Intrinsic.String.Build("DELETE FROM PPT_EINV_COPT WHERE CUSTOMER_ID = '{0}'",V.DataTable.dtARContacts(V.Global.iCtr).CustomerNum!FieldValTrim,V.Local.sSQL)
+		f.ODBC.Connection!con.Execute(V.Local.sSQL) 'Delete the entire row
+	F.Intrinsic.Control.Else 'otherwise if more than one email exists
+		F.Intrinsic.Control.For(V.Local.iCtr,0,V.Local.sRet.UBound,1) 'Loop through emails
+			F.Intrinsic.Control.If(V.Local.sRet(V.Local.iCtr).Trim,=,v.DataTable.dtARContacts(v.Global.ictr).Email!FieldValTrim)
+				F.Intrinsic.Control.If(V.Local.iCtr,=,0)
+					F.Intrinsic.String.Build("UPDATE PPT_EINV_COPT SET ADDL_EMAILS = (REPLACE(ADDL_EMAILS,'{0},',''))WHERE CUSTOMER_ID = '{1}'",V.Local.sEmail,V.DataTable.dtARContacts(V.Global.iCtr).CustomerNum!FieldValTrim,V.Local.sSQL)
+					f.ODBC.Connection!con.Execute(V.Local.sSQL) 'Remove first email
+				F.Intrinsic.Control.Else
+					'Delete email with preceding comma
+					F.Intrinsic.String.Build("UPDATE PPT_EINV_COPT SET ADDL_EMAILS = (REPLACE(ADDL_EMAILS,',{0}',''))WHERE CUSTOMER_ID = '{1}'",V.Local.sEmail,V.DataTable.dtARContacts(V.Global.iCtr).CustomerNum!FieldValTrim,V.Local.sSQL)
+					f.ODBC.Connection!con.Execute(V.Local.sSQL) 'Remove email from list
+				F.Intrinsic.Control.EndIf
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Next(V.Local.iCtr)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}.",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.disableARcontact.End
+
+Program.Sub.fPrompt_UnLoad.Start
+Gui.fPrompt..Visible(False)
+Program.Sub.fPrompt_UnLoad.End
+
+Program.Sub.cmdCreateNew_Click.Start
+F.Intrinsic.Control.Try
+	Gui.fNewContact.lblCustName.Caption(V.DataTable.dtARContacts(V.Global.iCtr).CustomerName!FieldValTrim)
+	Gui.fNewContact.lblCustNum.Caption(V.DataTable.dtARContacts(V.Global.iCtr).CustomerNum!FieldValTrim)
+	Gui.fNewContact.txtEmail.Text(V.DataTable.dtARContacts(V.Global.iCtr).Email!FieldValTrim)
+	Gui.fPrompt..Visible(False)
+	Gui.fNewContact..Show()
+	Gui.fNewContact..WaitForDismiss()
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}.",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdCreateNew_Click.End
+
+Program.Sub.cmdChooseExisting_Click.Start
+F.Intrinsic.Control.Try
+	V.Local.sSQL.Declare
+	V.Local.iCtr.Declare
+	V.Local.sRet.Declare
+	V.Local.sError.Declare
+	
+	F.Intrinsic.String.Build("SELECT A.ALT_ID, A.NAME, B.E_PROG_SETTINGS FROM CONTACT A LEFT OUTER JOIN CRM_CONTACT_AUX B ON A.ALT_ID = B.CID WHERE CUST = '{0}' AND TYPE = 'C'",V.DataTable.dtARContacts(V.Global.iCtr).CustomerNum!FieldValTrim,V.Local.sSQL)
+	'F.Intrinsic.String.Build("SELECT NAME, ALT_ID FROM CONTACT WHERE CUST = '{0}' AND TYPE = 'C';",V.DataTable.dtARContacts(V.Global.iCtr).CustomerNum!FieldValTrim,V.Local.sSQL)
+	F.Data.DataTable.CreateFromSQL("dtContacts","con",V.Local.sSQL,True)
+	Gui.fChooseExisting.gsgcContacts.AddGridviewFromDatatable("gvContacts","dtContacts")
+	
+	Gui.fChooseExisting.gsgcContacts.MainView("gvContacts")
+	Gui.fChooseExisting.gsgcContacts.SetColumnProperty("gvContacts","ALT_ID",Visible,False)
+	Gui.fChooseExisting.gsgcContacts.SetColumnProperty("gvContacts","E_PROG_SETTINGS",Visible,False)
+	
+	Gui.fChooseExisting..Show()
+	Gui.fChooseExisting..WaitForDismiss()
+	F.Data.DataTable.Close("dtContacts")
+	f.Intrinsic.Control.CallSub(fPrompt_Unload)
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}.",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+Program.Sub.cmdChooseExisting_Click.End
+
+Program.Sub.cmdOK_fChooseExisting_Click.Start
+F.Intrinsic.Control.Try
+	V.Local.iIndx.Declare
+	V.Local.sName.Declare
+	V.Local.sSQL.Declare
+	V.Local.iEinvFlg.Declare
+	V.Local.sError.Declare
+	
+	'When this button is clicked, the E_PROG_SETTINGS field should be read to determine the state of the E-Invoicing flag for the CRM contact
+	'If active, subtract 1 to disable E-Invoicing for the contact. Otherwise, skip.
+	F.Intrinsic.Math.Mod(V.DataTable.dtContacts(V.Global.iIndx).E_PROG_SETTINGS!FieldVal,2,V.Local.ieInvFlg)
+	F.Intrinsic.Control.If(V.Local.ieInvFlg,=,0) 'If E-Invoicing disabled for contact...
+		F.Intrinsic.Math.Add(V.Local.ieInvFlg,1,V.Local.ieInvFlg)
+		F.Intrinsic.String.Build("UPDATE CRM_CONTACT_AUX SET E_PROG_SETTINGS = {0} WHERE CID = {1}",V.Local.iEinvFlg,V.DataTable.dtContacts(V.Global.iIndx).ALT_ID!FieldValTrim,V.Local.sSQL)
+		F.ODBC.Connection!con.Execute(V.Local.sSQL)
+		V.Global.bSuccess.Set(True)
+	F.Intrinsic.Control.EndIf
+	
+	gui.fChooseExisting..Visible(False)
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}.",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End 
+F.Intrinsic.Control.EndTry
+
+Program.Sub.cmdOK_fChooseExisting_Click.End
+
+Program.Sub.gsgcContacts_RowClick.Start
+V.Global.iIndx.Set(V.Args.RowIndex)
+Program.Sub.gsgcContacts_RowClick.End
+
+Program.Sub.Comments.Start
+Program.Sub.Comments.End
